@@ -1,14 +1,21 @@
 import { PaginationItem, PaginationLink } from "reactstrap";
 import { useState } from "react";
-export default function SingleSeat({
-  selected = false,
-  updateSelected,
+
+export default function SingleSeat(
   seatNumber,
   row,
   blank,
+  selected = false,
+  updateSelected,
   available = true
-}) {
+) {
   const [active, setActive] = useState(selected);
+
+  console.log("updateSelected",updateSelected)
+  console.log("seatNumber",seatNumber)
+  console.log("row",row)
+  console.log("blank",blank)
+  console.log("selected",selected)
 
   function handleSelected() {
     if (available) {
@@ -26,7 +33,7 @@ export default function SingleSeat({
           onClick={handleSelected}
           className={available ? activeClass : "not-available"}
         >
-          {`${row}${seatNumber}`}
+           {`${row}${seatNumber}`}
         </PaginationLink>
       </PaginationItem>
     );

@@ -9,10 +9,11 @@ import Confirmation from "./Pages/Confirmation";
 import TAB_OPTIONS from "./Constants/tabOptions";
 export default function App() {
   const [tab, setTab] = useState(TAB_OPTIONS.SEAT_TYPE);
-  const [seatSelection, setSeatSelection] = useState({});
+  const [seatSelection, setSeatSelection] = useState({seatCount:0, seatType:""});
   function handleTabChange(tab, seatSelection) {
     setTab(tab);
-    setSeatSelection(seatSelection);
+    setSeatSelection((prevState)=>({...prevState, seatCount:seatSelection.seatCount, seatType:seatSelection.seatType}));
+    console.log("seat selection", seatSelection);
   }
   return (
     <Container>
